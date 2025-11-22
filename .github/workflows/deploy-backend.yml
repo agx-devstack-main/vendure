@@ -25,9 +25,7 @@ jobs:
           ${{ secrets.SSH_PRIVATE_KEY }}
           KEYFILE
           chmod 600 ~/.ssh/deploy_key
-          
           ssh-keyscan -H ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts 2>/dev/null
-          
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_IP }} << 'DEPLOY_SCRIPT'
           cd ${{ secrets.VM_APP_PATH }}
           git pull origin main

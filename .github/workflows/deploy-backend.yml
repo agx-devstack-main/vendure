@@ -36,4 +36,3 @@ jobs:
           pm2 restart vendure-backend
           pm2 save
           DEPLOY_SCRIPT
-
